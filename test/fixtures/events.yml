@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  event_location: MyString
+  event_time: 2022-09-19
+  event_date: 2022-09-19
+  event_type: MyString
+  event_points: 1
+  active: false
+
+two:
+  event_name: MyString
+  event_location: MyString
+  event_time: 2022-09-19
+  event_date: 2022-09-19
+  event_type: MyString
+  event_points: 1
+  active: false
