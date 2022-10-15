@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
     has_many :events, through: :attendances
-    has_many :attendancesasdas
+    has_many :attendances
 
     validates :name, presence: true
 end
