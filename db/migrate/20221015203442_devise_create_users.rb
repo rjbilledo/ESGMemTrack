@@ -39,6 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :grade
       t.string :uin
       t.integer :points
+      t.integer :classification_id
 
       t.timestamps null: false
     end

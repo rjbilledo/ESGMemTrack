@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :member_id %>
-    <%= form.select :member_id, Member.order(:name).map { |member| [member.name, member.id] }, include_blank: true, id: "id_of_the_member_id_select_box" %>
+    <%= form.label :user_id %>
+    <%= form.select :user_id, User.order(:full_name).map { |user| [user.full_name, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %>
   </div>
 
   <div class="field">
