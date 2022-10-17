@@ -5,14 +5,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks',
-    infos: 'users/infos'
   }
   resources :users
   resources :attendances
   resources :events
   resources :members
-  resources :pages
-  resources :tests
  # root 'attendances#index'
 
   resources :members do
