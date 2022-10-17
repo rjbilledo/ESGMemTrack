@@ -1,0 +1,19 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+  Grade: <%= f.text_field :grade %><br />
+
+
+  <%= f.submit "Update" %>
+
+<% end %>
+
+<% Attendance.where(user_id: current_user.id).each do |attendance| %>
+  <tr>
+    <td><%= Event.where(id: attendance.event_id).last.event_name %></td>
+    <br>    
+  </tr>
+<% end %>
+
+<%= link_to "Back", root_path %>

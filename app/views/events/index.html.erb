@@ -26,18 +26,27 @@
         <td><%= event.event_type %></td>
         <td><%= event.event_points %></td>
         <td><%= event.active %></td>
+        <td><%= button_to 'Confirm Attendance' ,{:controller => 'attendances', :action => 'create', :user_id => current_user.id, :event_id => event.id}, {:method => :post} %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.classification_id == 2 %>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if current_user.classification_id == 2 %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
 
 <br>
 
-<%= link_to 'Home', attendances_path %>
+<%= link_to 'Event Attendance', attendances_path %>
+
+<br>
+
+<%= link_to 'Home', root_path%>
