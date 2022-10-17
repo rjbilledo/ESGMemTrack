@@ -23,6 +23,14 @@ class EventsController < ApplicationController
   def showall
   end
 
+  def add_point
+    @user = current_user
+    @user.update_attribute(:points, 3)
+    respond_to do |format|
+      flash[:notice] = "Points have been added"
+    end
+  end
+
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
@@ -54,6 +62,7 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
+    Attendance.where(event_id: @event.id).destroy_all
 
     respond_to do |format|
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }

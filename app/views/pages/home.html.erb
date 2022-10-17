@@ -2,17 +2,18 @@
 <% if current_user %>
 <h2><%= current_user.email %></h2>
 <h2><%= current_user.full_name %></h2>
-<%= current_user.points = 4 %>
+<h2><%= current_user.points %></h2>
 <h2><%= current_user.uin %></h2>
 <h2><%= current_user.grade %></h2>
-<%= current_user.classification_id = 2%>
-<td><%= User.update(current_user.id, classification_id: 1) %></td>
-<td><%= Classification.where(id: current_user.classification_id).last.classification_name %></td>
-<%= link_to 'Attendances', attendances_path %>
-<%= link_to 'Show All Events', events_path %>
+<h2><%= current_user.classification_id %></h2>
+<%= User.update(current_user.id, classification_id: 2) %>
+
+
+<%= link_to 'Show All Event Attendance', attendances_path %> <br>
+<%= link_to 'Show All Events', events_path %> <br>
+<td><%= link_to 'User Profile', edit_user_registration_path(current_user) %><br></td>
 
 <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
 <% else %>
 <%= link_to "Login", new_user_session_path %>
-<%= link_to "Create Account", new_user_registration_path %>
 <% end %>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Attendances</h1>
+<h1>Event Attendance</h1>
 
 <table>
   <thead>
@@ -17,21 +17,15 @@
         <td><%= User.where(id: attendance.user_id).last.full_name %></td>
         <td><%= Event.where(id: attendance.event_id).last.event_name %></td>
         <td><%= attendance.created_at %></td>
-        <td><%= link_to 'Show', attendance %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.classification_id == 2 %>
+          <td><%= link_to 'Show', attendance %></td>
+          <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+          <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Attendance', new_attendance_path %>
-
-<br>
-
-<%= link_to 'Member index', members_path %>
 
 <br>
 
