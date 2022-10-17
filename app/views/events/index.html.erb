@@ -26,7 +26,7 @@
         <td><%= event.event_type %></td>
         <td><%= event.event_points %></td>
         <td><%= event.active %></td>
-        <td><%= button_to 'Confirm Attendance' ,{:controller => 'attendances', :action => 'create', :attendance => {:user_id => current_user.id, :event_id => event.id}}, {:method => :post} %></td>
+        <td><%= button_to 'Confirm Attendance' ,attendances_path, params: {:attendance => {user_id: current_user.id, event_id: event.id}} %></td>
         <td><%= link_to 'Show', event %></td>
         <% if current_user.classification_id == 2 %>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>
