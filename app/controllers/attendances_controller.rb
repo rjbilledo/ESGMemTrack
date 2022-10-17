@@ -22,7 +22,6 @@ class AttendancesController < ApplicationController
   # POST /attendances or /attendances.json
   def create
     @attendance = Attendance.new(attendance_params)
-    User.where(id: @attendance.user_id).last.points = 3
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to attendance_url(@attendance), notice: "Attendance was successfully created." }
@@ -65,6 +64,6 @@ class AttendancesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attendance_params
-      params.permit(:user_id, :event_id)
+      params.require(:attendance).permit(:user_id, :event_id)
     end
 end
