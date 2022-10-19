@@ -40,8 +40,7 @@
     <td><%= User.where(id: attendance.user_id).last.full_name %></td>
     <br>
     <%= @user = User.find_by(id: attendance.user_id) %>
-    <%= button_to "Add points", {:controller => 'users/registrations', :action => 'update', :user => @user, :points => 6}, {:method => :patch} %>
-    
+    <%= button_to "Add points", {:controller => 'users', :action => 'update', :id => @user.id, params: {:user => {points: @user.points + @event.event_points}}}, {:method => :patch} %>
   </tr>
 <% end %>
 <br>
