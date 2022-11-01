@@ -71,7 +71,7 @@ Deployment should be automatically set for the test branch to deploy when it is 
 
 ## CI/CD ##
 
-CI/CD is done through Heroku, which is continuously updating the servers based on what has been pushed. Rubocop and Brakeman are also being used to help with this.
+CI/CD is done through Heroku, which is continuously updating the servers based on what has been pushed. Rubocop and Brakeman are also being used to help with this. GitHub actions also it used to help automate the testing process. A code coverage of above 90% is acceptable for the application. Finally, there is a testing server used for continuous delivery to make sure the app works properly when deployed.
 
 ## Support ##
 
