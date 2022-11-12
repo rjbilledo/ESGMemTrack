@@ -6,8 +6,6 @@
 <h2><%= current_user.uin %></h2>
 <h2><%= current_user.grade %></h2>
 <h2><%= current_user.classification_id %></h2>
-<%= User.update(current_user.id, classification_id: 2) %>
-
 
 <%= link_to 'Show All Event Attendance', attendances_path %> <br>
 <%= link_to 'Show All Events', events_path %> <br>

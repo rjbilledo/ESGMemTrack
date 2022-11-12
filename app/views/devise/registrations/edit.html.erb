@@ -1,10 +1,10 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_with(model: resource) do |f| %>
 
   Grade: <%= f.text_field :grade %><br />
-
-
+  Classification: <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> <br>
+  Total Points: <%= current_user.points %>
   <%= f.submit "Update" %>
 
 <% end %>
