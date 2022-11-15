@@ -1,48 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event name:</strong>
-  <%= @event.event_name %>
-</p>
+<h1 class = 'myHeader'><%= @event.event_name %></h1>
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Time</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Points</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Event location:</strong>
-  <%= @event.event_location %>
-</p>
+  <tbody class = 'table'>
+      <tr>
+        <td><%= @event.event_name %></td>
+        <td><%= @event.event_location %></td>
+        <td><%= @event.event_time %></td>
+        <td><%= @event.event_date %></td>
+        <td><%= @event.event_type %></td>
+        <td><%= @event.event_points %></td>
+  </tbody>
+</table>
 
-<p>
-  <strong>Event time:</strong>
-  <%= @event.event_time %>
-</p>
+<h1 class = 'myHeader'>Attendees</h1>
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>User</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Event date:</strong>
-  <%= @event.event_date %>
-</p>
+  <tbody class = 'table'>
+    <% Attendance.where(event_id: @event.id).each do |attendance| %>
+      <tr>
+        <td><%= User.where(id: attendance.user_id).last.full_name %></td>
+        <% if current_user.classification_id > 2 %>
+          <td><%= button_to "Add points", {:controller => 'users', :action => 'update', :id => User.find_by(id: attendance.user_id).id, params: {:user => {points: User.find_by(id: attendance.user_id).points + @event.event_points}}}, {:method => :patch} %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>Event type:</strong>
-  <%= @event.event_type %>
-</p>
-
-<p>
-  <strong>Event points:</strong>
-  <%= @event.event_points %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @event.active %>
-</p>
-
-<% Attendance.where(event_id: @event.id).each do |attendance| %>
-  <tr>
-    <td><%= User.where(id: attendance.user_id).last.full_name %></td>
-    <br>
-    <%= @user = User.find_by(id: attendance.user_id) %>
-    <%= button_to "Add points", {:controller => 'users', :action => 'update', :id => @user.id, params: {:user => {points: @user.points + @event.event_points}}}, {:method => :patch} %>
-  </tr>
-<% end %>
 <br>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class='textcenter'>
+  <% if current_user.classification_id > 2 %>
+    <p class="btn btn-dark"><%= link_to 'Edit', edit_event_path(@event) %></p>
+  <% end %>
+
+
+  <p class="btn btn-dark"><%= link_to 'Back', events_path %></p>
+
+
+  <p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
+</div>

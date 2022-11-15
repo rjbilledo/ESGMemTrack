@@ -1,22 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1 class = 'myHeader'>Events</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Event name</th>
-      <th>Event location</th>
-      <th>Event time</th>
-      <th>Event date</th>
-      <th>Event type</th>
-      <th>Event points</th>
-      <th>Active</th>
-      <th colspan="3"></th>
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Time</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Points</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class = 'table'>
     <% @events.each do |event| %>
       <tr>
         <td><%= event.event_name %></td>
@@ -25,12 +24,11 @@
         <td><%= event.event_date %></td>
         <td><%= event.event_type %></td>
         <td><%= event.event_points %></td>
-        <td><%= event.active %></td>
         <td><%= button_to 'Confirm Attendance' ,attendances_path, params: {:attendance => {user_id: current_user.id, event_id: event.id}} %></td>
-        <td><%= link_to 'Show', event %></td>
-        <% if current_user.classification_id == 2 %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="btn btn-dark"><%= link_to 'Show Details', event %>  </td>
+        <% if current_user.classification_id > 2 %>
+          <td class="btn btn-dark"><%= link_to 'Edit', edit_event_path(event) %>  </td>
+          <td class="btn btn-dark"><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>  </td>
         <% end %>
         
       </tr>
@@ -39,14 +37,14 @@
 </table>
 
 <br>
-<% if current_user.classification_id == 2 %>
-  <%= link_to 'New Event', new_event_path %>
+<div class='textcenter'>
+<% if current_user.classification_id > 2 %>
+  <p class="btn btn-dark"><%= link_to 'New Event', new_event_path %></p>
 <% end %>
 
-<br>
 
-<%= link_to 'Event Attendance', attendances_path %>
+<p class="btn btn-dark"><%= link_to 'Event Attendance', attendances_path %></p>
 
-<br>
 
-<%= link_to 'Home', root_path%>
+<p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
+</div>

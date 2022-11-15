@@ -9,13 +9,17 @@ def login
       info: {
         email: "test@gmail.com",
         first_name: "Jo",
+        classification_id: 4,
+        id: 1
       },
       credentials: {
         token: "abcdefg12345",
         refresh_token: "abcdefg12345",
         expires_at: DateTime.now,
-      }
+      },
+      classification_id: 4,
     })
+    
 end
 
 feature 'testing oauth' do
@@ -25,34 +29,23 @@ feature 'testing oauth' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
 
     expect(page).to have_content("Jo")
-  end
-end
-
-
-RSpec.describe 'Creating a member', type: :feature do
-  scenario 'valid inputs' do
-    visit new_member_path
-    fill_in 'Name', with: 'Jo Smith'
-    fill_in 'Grade', with: 'Freshman'
-    fill_in 'Uin', with: '222222222'
-    fill_in 'Email', with: 'example@tamu.edu'
-    click_on 'Create Member'
-    visit members_path
-    expect(page).to have_content('Jo Smith')
-    expect(page).to have_content('Freshman')
-    expect(page).to have_content('222222222')
-    expect(page).to have_content('example@tamu.edu')
   end
 end
 
 feature 'testing event creation' do
   scenario 'should create a new event' do
     login
+    visit root_path
+    click_link "Login"
+    
+    expect(page).to have_link("Sign in with TAMU Google")
+
+    click_link "Sign in with TAMU Google"
     visit new_event_path
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
@@ -77,10 +70,13 @@ feature 'testing event creation' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
+    #click_link "Edit Profile"
+    #fill_in 'Classification:', with: 'President'
     visit new_event_path
+    
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
     fill_in 'Event time', with: '08:00 PM'
@@ -109,9 +105,9 @@ feature 'testing attendance creation' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
     visit new_event_path
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
@@ -132,8 +128,6 @@ feature 'testing attendance creation' do
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
     click_on 'Confirm Attendance'
-    expect(page).to have_content('User:')
-    expect(page).to have_content('Event:')
     visit attendances_path
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
@@ -147,9 +141,9 @@ feature 'testing name goes under event' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
     visit new_event_path
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
@@ -170,13 +164,11 @@ feature 'testing name goes under event' do
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
     click_on 'Confirm Attendance'
-    expect(page).to have_content('User:')
-    expect(page).to have_content('Event:')
     visit attendances_path
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
     visit events_path
-    click_on 'Show'
+    click_on 'Show Details'
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
   end
@@ -189,9 +181,9 @@ feature 'testing event goes under user' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
     visit new_event_path
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
@@ -212,14 +204,12 @@ feature 'testing event goes under user' do
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
     click_on 'Confirm Attendance'
-    expect(page).to have_content('User:')
-    expect(page).to have_content('Event:')
     visit attendances_path
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
     visit events_path
     click_on 'Home'
-    click_on 'User Profile'
+    click_on 'Edit Profile'
     expect(page).to have_content("Street Cleanup #100")
   end
 end
@@ -231,9 +221,9 @@ feature 'testing event deletion deletes attendance' do
     visit root_path
     click_link "Login"
     
-    expect(page).to have_link("Sign in with GoogleOauth2")
+    expect(page).to have_link("Sign in with TAMU Google")
 
-    click_link "Sign in with GoogleOauth2"
+    click_link "Sign in with TAMU Google"
     visit new_event_path
     fill_in 'Event name', with: 'Street Cleanup #5'
     fill_in 'Event location', with: 'Dominik Dr.'
@@ -254,14 +244,12 @@ feature 'testing event deletion deletes attendance' do
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
     click_on 'Confirm Attendance'
-    expect(page).to have_content('User:')
-    expect(page).to have_content('Event:')
     visit attendances_path
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
     visit events_path
-    click_on 'Destroy'
-    click_on 'Event Attendance'
+    click_on 'Delete'
+    #click_on 'Event Attendance'
   end
 end
 
