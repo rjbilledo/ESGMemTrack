@@ -1,22 +1,4 @@
-<%= form_with(model: classification) do |form| %>
-  <% if classification.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(classification.errors.count, "error") %> prohibited this classification from being saved:</h2>
-
-      <ul>
-        <% classification.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :classification_name %>
-    <%= form.text_field :classification_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_with(model: user) do |f| %>
+    Classification: <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> <br>
+  <%= f.submit "Update" %>
 <% end %>

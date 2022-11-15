@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
     before_action :set_user, only: %i[ show edit update destroy ]
-  
+    def index
+      @users = User.all
+    end
     # GET /users/1 or /users/1.json
     def show
+    end
+    def new
+      @user = User.new
+    end
+    def showall
     end
     def update
       respond_to do |format|

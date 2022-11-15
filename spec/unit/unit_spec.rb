@@ -1,17 +1,17 @@
 # location: spec/unit/unit_spec.rb
 require 'rails_helper'
 
-RSpec.describe Member, type: :model do
+RSpec.describe User, type: :model do
   subject do
-    described_class.new(name: 'Jo Smith', grade: 'Freshman', uin: '222222222', email: 'e@w')
+    described_class.new(full_name: 'Jo Smith', grade: 'Freshman', uin: '222222222', email: 'e@w', password: '123asdfa')
   end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
 
-  it 'is not valid without a name' do
-    subject.name = nil
+  it 'is not valid without a password' do
+    subject.password = nil
     expect(subject).not_to be_valid
   end
 end

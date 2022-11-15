@@ -11,37 +11,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :event_name %>
-    <%= form.text_field :event_name %>
-  </div>
+  <table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground2'>
+    <tr class = 'rowbackground2'>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-  <div class="field">
-    <%= form.label :event_location %>
-    <%= form.text_field :event_location %>
-  </div>
+  <tbody class = 'table'>
+    <%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :event_time %>
-    <%= form.time_field :event_time %>
-  </div>
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <tr>
+        <td>
+    <div class="field">
+      <%= form.label :event_name %>
+      <%= form.text_field :event_name %>
+    </div></td>
+        <td><div class="field">
+      <%= form.label :event_location %>
+      <%= form.text_field :event_location %>
+    </div></td>
+        <td><div class="field">
+      <%= form.label :event_time %>
+      <%= form.time_field :event_time %>
+    </div></td>
+        <td><div class="field">
+      <%= form.label :event_date %>
+      <%= form.date_field :event_date %>
+    </div></td>
+        <td><div class="field">
+      <%= form.label :event_type %>
+      <%= form.text_field :event_type %>
+    </div></td>
+        <td><div class="field">
+      <%= form.label :event_points %>
+      <%= form.number_field :event_points %>
+    </div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="field">
-    <%= form.label :event_date %>
-    <%= form.date_field :event_date %>
-  </div>
+<div class='textcenter'>
+<div class="actions">
+      <%= form.submit %>
+    </div>
+</div>
 
-  <div class="field">
-    <%= form.label :event_type %>
-    <%= form.text_field :event_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_points %>
-    <%= form.number_field :event_points %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: white !important;
+    font-size: 100%;
+    font-family: 'Lucida Console', monospace, sans-serif,sans-serif;
+}
+.firsthead {
+    color: white;
+    font-size: 125%;
+    font-family: 'Lucida Console', monospace, sans-serif,sans-serif;
+}
+
+p{
+    display: inline;
+}
+.tablecenter{
+    margin: auto;
+  width: 100%;
+  border: 3px solid darkgray;
+  padding: 10px;
+  text-align: center;
+}
+.hide{
+    display: none;
+}
+.textcenter{
+    margin: auto;
+    width: 50%;
+    border: 3px;
+    padding: 10px;
+    text-align: center;
+}
+.rowbackground{
+    background: black;
+    color: white;
+    text-align: center;
+}
+.rowbackground2{
+    background: white;
+    color: white;
+    text-align: center;
+}
+.myHeader {
+    padding-top: 2%;
+    font-size: 250%;
+    color: black;
+    text-align: center;
+
+
+}
+.myHeader2{
+    font-size: 65px;
+
+    text-decoration: none;
+}
+.myHeader3{
+    font-size: 45px;
+
+    line-height: 15px;
+    padding-left: 20%;
+
+}
+.resumebutton{
+    font-family: monospace;
+    width: 150px;
+    height: 50px;
+    color: white;
+    border-radius: 100px;
+    
+}
+.myHeader4{
+    font-size: 65px;
+
+    text-decoration: none;
+    padding-bottom: 25%;
+}
+.ncrwords{
+   /* margin-right: 5%;*/
+    font-size: 150%;
+    padding-bottom: 5%;
+}
+.hrb{
+    padding-bottom: 5%;
+}
+.techskills{
+    font-size:large;
+    padding-left:25%;
+    padding-right:5%;
+}
+.interests{
+    padding-left:5%;
+    font-size: large;
+    padding-right: 25%;
+}
+.aboutpage a{
+    text-decoration: none;
+}
+.aboutpage{
+    
+
+    margin: 10%;
+   /* border-radius: 25px;*/
+}.github{
+    font-size: 150%;
+}
+.ncrpic{
+    width: 300px;
+    height: 85px;
+    float: right;
+    padding-top: 5%;
+}
+.rpic{
+    width: 160px;
+    height: 180px;
+    float: right;
+}
+.sec{
+    color: white;
+    padding-bottom: 10%;
+}
+#username{
+    text-align: center;
+    font-size: 110%;
+    color: white;
+    text-decoration: none;
+}
+#email{
+    text-align: center;
+    font-size: 110%;
+    color: white;
+    text-decoration: none;
+}
+#title{
+    padding-right: 30%;
+    font-size: 150%;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+#home{
+    padding-right: 8%;
+    color: white;
+    text-decoration: none;
+}
+#port{
+    padding-right: 8%;
+    color: white;
+    text-decoration: none;
+}
+#qual{
+    padding-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+#service{
+    padding-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+#antihax{
+    font-size: 400%;
+   /* padding-left: 20%; */
+    text-align: left;
+    text-decoration: none;
+    
+}
+#fitness{
+    font-size: 400%;
+   /* padding-right: 20%;*/
+    text-align: left;
+    padding-top: 5%;
+}
+#web{
+    font-size: 400%;
+  /*  padding-left: 20%;*/
+    text-align: left;
+    text-decoration: none;
+    padding-top: 5%;
+}
+#resume{
+    font-size: 400%;
+    padding-left: 0%;
+    text-align: left;
+    padding-bottom: 5%;
+}
+#ts{
+    font-size: 400%;
+    padding-right: 0%;
+    text-align: left;
+    padding-top: 5%;
+}
+#aoi{
+    font-size: 400%;
+    padding-left: 0%;
+    text-align: left; 
+    padding-top: 5%;   
+}
+a:hover{
+    background-color: transparent;
+    color: #fcd102;
+    text-decoration: none;
+}
+a:visited{
+    color: #fcd102;
+    text-decoration: none;
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a:active{
+    color: #fcd102;
+    text-decoration: none;
+}
+.im{
+    float: left;
+    padding-left: 2%;
+    padding-top: 0%;
+}
+.haxpic{
+    text-align: right;
+    width: 15%;
+    height: 15%;
+    float: right;
+}
+.haxpic2{
+    text-align: right;
+    width: 23%;
+    height: 23%;
+    float: right;
+}
+.haxpic3{
+    text-align: right;
+    padding-right: 25%;
+    width: 15%;
+    height: 15%;
+    float: right;
+    font-family: monospace;
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+}
+.top{
+    padding-top: 1%;
+    text-align: right;
+    background-color: rgba(0,0,0,255);
+    line-height: 500%;
+}
+.top2{
+    padding-top: .5%;
+    text-align: center;
+    background-color: rgba(0,0,0,85%);
+    line-height: 200%;
+}
+.seal1{
+    padding-top: 2%;
+    text-align: center;
+}
+.middle{
+    padding-top: 1%;
+    text-align: center;
+    background-color: rgba(27,85,49,255);
+    line-height: 250%;
+    color: white;
+    font-size: 250%;
+}
+.middleinfo{
+    text-align: center;
+    color: white;
+    font-size: 115%;
+}
+.back{
+    background-image: url("ab-black.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*background-size: 100% 200%;*/
+}
+.headback{
+   /* background-color: rgba(80, 0, 0, .5);
+    margin: 2.5%;
+    border-radius: 25px;
+*/
+}
+.aboutwords{
+    font-size: 130%;
+
+    padding-left: 20%;
+}
+body {
+    background-color: whitesmoke;
+    font-family: Garamond, Courier, monospace;
+    margin: 0;
+}
