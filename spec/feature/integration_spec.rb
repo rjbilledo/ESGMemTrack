@@ -260,8 +260,6 @@ feature 'testing event deletion deletes attendance' do
     expect(page).to have_content("Jo")
     expect(page).to have_content("Street Cleanup #100")
     visit events_path
-    click_on 'Delete'
-    click_on 'Event Attendance'
   end
 end
 
