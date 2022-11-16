@@ -19,8 +19,7 @@
         <div class = "seal1">
             <%= image_tag "esg_seal.jpg"%>
         </div>
-        <div class = "middle">
-            <p class = 'middleinfo'>Member Info:</p> <br>
+        <div class = "middle2">
             <p class = 'middleinfo'>Total Points: <%= current_user.points %></p><br>
             <% if current_user.classification_id %>
             
@@ -30,7 +29,17 @@
         </div>
         
         <% else %>
+        <nav class="navbar navbar-expand-sm darkcolor">
+            <a class="navbar-brand">
+                <img src="/esg_seal2.png" alt="Logo" style="width:50%;height:auto;"/>
+            </a>
+            <!-- Links -->
+            <div class='right'>
+            </div>
+
+        </nav>
         <div class = "middle">
+            <h1 class='myHeader3'>Welcome!</h1>
            <p class = 'btn btn-dark'> <%= link_to "Login", new_user_session_path %></p>
         </div>
         <% end %>
