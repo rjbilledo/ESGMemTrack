@@ -39,9 +39,9 @@
           <td><div class="field">
         <%= form.date_field :event_date %>
       </div></td>
-          <td><div class="field">
-        <%= form.text_field :event_type %>
-      </div></td>
+
+              <td><div class="field"> <%= form.select :event_type, options_for_select(["Teaching", "Research", "Service", "Advocacy", "Social", "Other"]) %> </td></div>
+
           <td><div class="field">
         <%= form.number_field :event_points %>
       </div></td>

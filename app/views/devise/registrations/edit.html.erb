@@ -28,7 +28,11 @@
     <tr>
         <td><div class="field"><%= f.text_field :grade %></td></div>
         <td><div class="field"><%= f.text_field :phone %></td></div>
+        <% if current_user.classification_id > 2 %>
         <td><div class="field"> <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> </td></div>
+        <% else %>
+        <td><%= Classification.where(id: current_user.classification_id).last.classification_name %></td></div>
+        <% end %>
         <% if current_user.classification_id > 2 %>
         <td><div class="field"><%= f.number_field :points %></td></div>
         <% else %>
