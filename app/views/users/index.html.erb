@@ -1,3 +1,15 @@
+<nav class="navbar navbar-expand-sm darkcolor">
+  <a class="navbar-brand">
+    <img src="/esg_seal2.png" alt="Logo" style="width:50%;height:auto;"/>
+  </a>
+  <!-- Links -->
+  <div class='right'>
+
+<p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
+</div>
+
+</nav>
+
 <p id="notice"><%= notice %></p>
 
 <h1 class='myHeader'>Users</h1>
@@ -25,8 +37,8 @@
         <td><%= user.grade %></td>
         <td><%= Classification.where(id: user.classification_id).last.classification_name %></td>      
         <% if current_user.classification_id > 2 %>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="button"><%= link_to 'Edit', edit_user_registration_path(current_user) %></td>
+          <td class="button"><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %> 
         
       </tr>
@@ -35,7 +47,3 @@
 </table>
 
 <br>
-<div class='textcenter'>
-
-<p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
-</div>

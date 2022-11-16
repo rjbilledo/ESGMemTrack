@@ -1,5 +1,19 @@
-<h1>New Event</h1>
+<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-sm darkcolor">
+  <a class="navbar-brand">
+    <img src="/esg_seal2.png" alt="Logo" style="width:50%;height:auto;"/>
+  </a>
+  <!-- Links -->
+  <div class='right'>
+
+<p class="btn btn-dark"><%= link_to 'Events', events_path %></p>
+<p class="btn btn-dark"><%= link_to 'Home', root_path %></p>
+
+</div>
+
+</nav>
+<h1 class = 'myHeader'>New Event</h1>
 
 <%= render 'form', event: @event %>
 
-<%= link_to 'Back', events_path %>
+

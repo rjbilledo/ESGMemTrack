@@ -24,7 +24,7 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to events_path, notice: "Attendance was successfully created." }
+        format.html { redirect_to events_path, notice: "You have successfully signed up for the event." }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new, status: :unprocessable_entity }

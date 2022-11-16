@@ -1,4 +1,24 @@
-<%= form_with(model: user) do |f| %>
-    Classification: <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> <br>
-  <%= f.submit "Update" %>
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Classification</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody class = 'table'>
+    <%= form_with(model: user) do |f| %>
+    <tr>
+        <td><div class="field"> <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> </td></div>
+        <td><div class="field">
+        <%= f.number_field :points %>
+      </td></div>
+    </tr>
+    
+  </tbody>
+</table>
+<div class='textcenter'>
+<div class="actions">
+      <%= f.submit %>
+    </div>
+</div>
 <% end %>

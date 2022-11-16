@@ -8,9 +8,9 @@
 
         <div class="top">    
             <p id = 'title'>Eta Sigma Gamma</p>
-            <p id = 'home'><%= link_to 'EVENTS', events_path, class: 'firsthead' %></p>
-            <p id = 'home'><%= link_to 'ATTENDANCE', attendances_path, class: 'firsthead' %> </p>
-            <p id = 'port'><%= link_to 'USERS', users_path, class: 'firsthead' %> </p><br>           
+            <p class = 'btn btn-dark'><%= link_to 'Events', events_path %></p>
+            <p class = 'btn btn-dark'><%= link_to 'Users', users_path %> </p>
+                    
         </div>
         <div class="top2">
             <p id = 'username'> <%= current_user.full_name %> </p>
@@ -25,24 +25,18 @@
             <% if current_user.classification_id %>
             
             <% end %>
-            <%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>
+            <p class = 'btn btn-dark'><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
+            <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
         </div>
-
-
-        <h2 class = 'firsthead'><%= current_user.email %></h2>
-        <h2><%= current_user.full_name %></h2>
-        <h2><%= current_user.points %></h2>
-        <h2><%= current_user.uin %></h2>
-        <h2><%= current_user.grade %></h2>
-        <h2><%= current_user.classification_id %></h2>
-        <h2><%= current_user.phone %></h2>
-        <%= link_to 'Show All Event Attendance', attendances_path %> <br>
-        
-        <td><%= link_to 'Profile', edit_user_registration_path(current_user) %><br></td>
-
-        <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
-        <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <% end %>
-    </body>
+        </body>
 </html>
+<html style="background-color:#1c5630;">
+        <% else %>
+        <body>
+        <div class = "middle">
+           <p class = 'btn btn-dark'><%= link_to "Login", new_user_session_path %></p>
+        </div>
+        </body>
+</html>
+        <% end %>
+        

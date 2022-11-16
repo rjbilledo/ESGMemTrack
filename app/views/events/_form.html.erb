@@ -12,53 +12,52 @@
   <% end %>
 
   <table class = 'table-striped table-hover tablecenter'>
-  <thead class = 'rowbackground2'>
-    <tr class = 'rowbackground2'>
-      <th colspan="2"></th>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Time</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Points</th>
     </tr>
   </thead>
 
   <tbody class = 'table'>
-    <%= form_with(model: event) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <%= form_with(model: event) do |form| %>
+      <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-      <tr>
-        <td>
-    <div class="field">
-      <%= form.label :event_name %>
-      <%= form.text_field :event_name %>
-    </div></td>
-        <td><div class="field">
-      <%= form.label :event_location %>
-      <%= form.text_field :event_location %>
-    </div></td>
-        <td><div class="field">
-      <%= form.label :event_time %>
-      <%= form.time_field :event_time %>
-    </div></td>
-        <td><div class="field">
-      <%= form.label :event_date %>
-      <%= form.date_field :event_date %>
-    </div></td>
-        <td><div class="field">
-      <%= form.label :event_type %>
-      <%= form.text_field :event_type %>
-    </div></td>
-        <td><div class="field">
-      <%= form.label :event_points %>
-      <%= form.number_field :event_points %>
-    </div></td>
-      </tr>
-    <% end %>
+          <ul>
+            <% event.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <tr>
+          <td>
+      <div class="field">
+        <%= form.text_field :event_name %>
+      </div></td>
+          <td><div class="field">
+        <%= form.text_field :event_location %>
+      </div></td>
+          <td><div class="field">
+        <%= form.time_field :event_time %>
+      </div></td>
+          <td><div class="field">
+        <%= form.date_field :event_date %>
+      </div></td>
+          <td><div class="field">
+        <%= form.text_field :event_type %>
+      </div></td>
+          <td><div class="field">
+        <%= form.number_field :event_points %>
+      </div></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 

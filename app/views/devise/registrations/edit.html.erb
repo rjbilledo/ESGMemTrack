@@ -1,20 +1,63 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-sm darkcolor">
+  <a class="navbar-brand">
+    <img src="/esg_seal2.png" alt="Logo" style="width:50%;height:auto;"/>
+  </a>
+  <!-- Links -->
+  <div class='right'>
 
-<%= form_with(model: resource) do |f| %>
+<p class="btn btn-dark"><%= link_to 'Home', root_path %></p>
 
-  Grade: <%= f.text_field :grade %><br />
-  Phone Number: <%= f.text_field :phone %><br />
-  Classification: <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> <br>
-  Total Points: <%= current_user.points %>
-  <%= f.submit "Update" %>
+</div>
 
+</nav>
+
+<h2 class='myHeader'>Edit Profile</h2>
+
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Grade</th>
+      <th>Phone Number</th>
+      <th>Classification</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+  <tbody class = 'table'>
+    <%= form_with(model: resource) do |f| %>
+    <tr>
+        <td><div class="field"><%= f.text_field :grade %></td></div>
+        <td><div class="field"><%= f.text_field :phone %></td></div>
+        <td><div class="field"> <%= f.select :classification_id, Classification.order(:classification_name).map { |classification| [classification.classification_name, classification.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> </td></div>
+        <td><div class="field"><%= current_user.points %></td></div>
+    </tr>
+    
+  </tbody>
+</table>
+
+<div class='textcenter'>
+<div class="actions">
+      <%= f.submit %>
+    </div>
+</div>
 <% end %>
 
-<% Attendance.where(user_id: current_user.id).each do |attendance| %>
-  <tr>
-    <td><%= Event.where(id: attendance.event_id).last.event_name %></td>
-    <br>    
-  </tr>
-<% end %>
+<h1 class = 'myHeader'>Your Events</h1>
+<table class = 'table-striped table-hover tablecenter'>
+  <thead class = 'rowbackground'>
+    <tr class = 'rowbackground'>
+      <th>Event</th>
+      <th>Sign Up Time</th>
+    </tr>
+  </thead>
 
-<%= link_to "Back", root_path %>
+  <tbody class = 'table'>
+    <% Attendance.where(user_id: current_user.id).each do |attendance| %>
+      <tr>
+        <td><%= Event.where(id: attendance.event_id).last.event_name %></td>
+        <td><%= attendance.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

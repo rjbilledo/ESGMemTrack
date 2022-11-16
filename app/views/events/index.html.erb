@@ -1,5 +1,18 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-sm darkcolor">
+  <a class="navbar-brand">
+    <img src="/esg_seal2.png" alt="Logo" style="width:50%;height:auto;"/>
+  </a>
+  <!-- Links -->
+  <div class='right'>
+<% if current_user.classification_id > 2 %>
+  <p class="btn btn-dark"><%= link_to 'New Event', new_event_path %></p>
+<% end %>
 
+<p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
+</div>
+
+</nav>
+<p id="notice"><%= notice %></p>
 <h1 class = 'myHeader'>Events</h1>
 
 <table class = 'table-striped table-hover tablecenter'>
@@ -11,7 +24,7 @@
       <th>Date</th>
       <th>Type</th>
       <th>Points</th>
-      <th colspan="4"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -25,10 +38,10 @@
         <td><%= event.event_type %></td>
         <td><%= event.event_points %></td>
         <td><%= button_to 'Confirm Attendance' ,attendances_path, params: {:attendance => {user_id: current_user.id, event_id: event.id}} %></td>
-        <td class="btn btn-dark"><%= link_to 'Show Details', event %>  </td>
+        <td class="button"><%= link_to 'Show Details', event %>  </td>
         <% if current_user.classification_id > 2 %>
-          <td class="btn btn-dark"><%= link_to 'Edit', edit_event_path(event) %>  </td>
-          <td class="btn btn-dark"><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>  </td>
+          <td class="button"><%= link_to 'Edit', edit_event_path(event) %>  </td>
+          <td class="button"><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>  </td>
         <% end %>
         
       </tr>
@@ -37,14 +50,3 @@
 </table>
 
 <br>
-<div class='textcenter'>
-<% if current_user.classification_id > 2 %>
-  <p class="btn btn-dark"><%= link_to 'New Event', new_event_path %></p>
-<% end %>
-
-
-<p class="btn btn-dark"><%= link_to 'Event Attendance', attendances_path %></p>
-
-
-<p class="btn btn-dark"><%= link_to 'Home', root_path%></p>
-</div>
