@@ -28,15 +28,11 @@
             <p class = 'btn btn-dark'><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
             <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
         </div>
-        </body>
-</html>
-<html style="background-color:#1c5630;">
-        <% else %>
-        <body>
-        <div class = "middle">
-           <p class = 'btn btn-dark'><%= link_to "Login", new_user_session_path %></p>
-        </div>
-        </body>
-</html>
-        <% end %>
         
+        <% else %>
+        <div class = "middle">
+           <p class = 'btn btn-dark'> <%= link_to "Login", new_user_session_path %></p>
+        </div>
+        <% end %>
+    </body>
+</html>
