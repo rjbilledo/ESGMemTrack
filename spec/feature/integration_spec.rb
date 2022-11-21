@@ -47,16 +47,14 @@ feature 'testing event creation' do
 
     click_link "Sign in with TAMU Google"
     visit new_event_path
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
@@ -77,21 +75,19 @@ feature 'testing event creation' do
     #fill_in 'Classification:', with: 'President'
     visit new_event_path
     
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
     click_on 'Edit'
-    fill_in 'Event name', with: 'Street Cleanup #100'
+    fill_in 'event_event_name', with: 'Street Cleanup #100'
     click_on 'Update Event'
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
@@ -109,21 +105,19 @@ feature 'testing attendance creation' do
 
     click_link "Sign in with TAMU Google"
     visit new_event_path
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
     click_on 'Edit'
-    fill_in 'Event name', with: 'Street Cleanup #100'
+    fill_in 'event_event_name', with: 'Street Cleanup #100'
     click_on 'Update Event'
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
@@ -145,21 +139,19 @@ feature 'testing name goes under event' do
 
     click_link "Sign in with TAMU Google"
     visit new_event_path
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
     click_on 'Edit'
-    fill_in 'Event name', with: 'Street Cleanup #100'
+    fill_in 'event_event_name', with: 'Street Cleanup #100'
     click_on 'Update Event'
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
@@ -185,21 +177,19 @@ feature 'testing event goes under user' do
 
     click_link "Sign in with TAMU Google"
     visit new_event_path
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
     click_on 'Edit'
-    fill_in 'Event name', with: 'Street Cleanup #100'
+    fill_in 'event_event_name', with: 'Street Cleanup #100'
     click_on 'Update Event'
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
@@ -225,21 +215,19 @@ feature 'testing event deletion deletes attendance' do
 
     click_link "Sign in with TAMU Google"
     visit new_event_path
-    fill_in 'Event name', with: 'Street Cleanup #5'
-    fill_in 'Event location', with: 'Dominik Dr.'
-    fill_in 'Event time', with: '08:00 PM'
-    fill_in 'Event date', with: '2022-09-10'
-    fill_in 'Event type', with: 'Service'
-    fill_in 'Event points', with: '1'
+    fill_in "event_event_name", with: 'Street Cleanup #5'
+    fill_in 'event_event_location', with: 'Dominik Dr.'
+    fill_in 'event_event_time', with: '08:00 PM'
+    fill_in 'event_event_date', with: '2022-09-10'
+    fill_in 'event_event_points', with: '1'
     click_on 'Create Event'
     expect(page).to have_content('Street Cleanup #5')
     expect(page).to have_content('Dominik Dr.')
-    expect(page).to have_content('Service')
     expect(page).to have_content('1')
     expect(page).to have_content('2022-09-10')
     expect(page).to have_content('20:00')
     click_on 'Edit'
-    fill_in 'Event name', with: 'Street Cleanup #100'
+    fill_in 'event_event_name', with: 'Street Cleanup #100'
     click_on 'Update Event'
     expect(page).to have_content('Street Cleanup #100')
     visit events_path
