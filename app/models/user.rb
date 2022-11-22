@@ -16,7 +16,7 @@ class User < ApplicationRecord
       user.avatar_url = auth.info.image
       user.points = 0
       user.grade = 'Freshman'
-      user.classification_id = 4
+      user.classification_id = 1
     end
   end
 end
