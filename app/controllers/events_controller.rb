@@ -24,7 +24,6 @@ class EventsController < ApplicationController
 
   def add_point
     @user = current_user
-    @user.update_attribute(:points, 3)
     respond_to do |_format|
       flash[:notice] = 'Points have been added'
     end
