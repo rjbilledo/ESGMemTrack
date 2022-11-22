@@ -1,6 +1,8 @@
-class Member < ApplicationRecord
-    has_many :events, through: :attendances
-    has_many :attendances
+# frozen_string_literal: true
 
-    validates :name, presence: true
+class Member < ApplicationRecord
+  has_many :events, through: :attendances
+  has_many :attendances
+
+  validates :name, presence: true
 end

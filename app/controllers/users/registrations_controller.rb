@@ -11,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:uin, :grade])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:uin, :grade])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[uin grade])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[uin grade])
   end
   # POST /resource
   # def create
@@ -25,10 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-
-    super
-  end
 
   def account_update_params
     params.require(:user).permit(:grade)
