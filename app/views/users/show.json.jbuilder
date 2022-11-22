@@ -1,1 +1,3 @@
-json.partial! "classifications/classification", classification: @classification
+# frozen_string_literal: true
+
+json.partial!('classifications/classification', classification: @classification)

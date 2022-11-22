@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :classifications
-  root 'pages#home'
+  root :to => 'pages#home'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
