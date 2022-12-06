@@ -2,21 +2,40 @@
 
 ## Introduction ##
 
-ESGMemTrack is designed to store an attendance sheet based on a list of members and events for the organization Eta Sigma Gamma. Members are added to the roster by signing up, and events are created by an admin of ESG. Attendance is noted by the time the member signs up so that they can see that they are on time.
+The Eta Sigma Gamma Member Tracker is designed to store attendance and points for the users within the organization. Members are added to the application by signing in with their TAMU accounts, and events are created by an officer of the organization. Attendance is noted by the time the member signs up so that they can see that they are on time.
 
 ## Requirements ##
 
 This code has been run and tested on:
 
-* Ruby - 3.0.2p107
-* Rails - 6.1.4.1
-* Ruby Gems - Listed in `Gemfile`
-* PostgreSQL - 13.4
-* Dockerversion 20.10.17
-* Heroku
-* RuboCop
-* Simplecov
-* Brakeman
+Environment
+•	Operating System Windows 10
+•	Docker Engine v 20.10.17
+•	Docker container v 1.6.6
+•	Heroku
+•	Others
+
+Program
+•	Ruby v 3.0.2
+•	Rails v 6.1.4.1
+•	Rspec-rails v 6.0.1
+•	PostgreSQL v 13.4
+•	jQuery-rails 3.3
+The following gems were used:
+•	Rails, pg, puma, sass-rails, webpacker, turbolinks, jbuilder, redis, bcrypt, image_processing, bootsnap, byebug, web-console, rack-mini-profiler, listen, sring, capybara, selenium-websriver, webdrivers, tzinfo-data, rexml, brakeman, simplecov, rspec-rails, devise, omniauth, omniauth-google-oauth2, omniauth-rails_csrf_protection v1.0, phonelib, twilio-ruby, rubocop
+
+Tools
+•	Git Hub
+•	RuboCop v 1.38.0
+•	Simplecov v 0.21.2
+•	Brakeman v 5.4.0
+•	Jira
+•	Visual Studio Code v 1.73
+•	Others
+•	HTML
+•	CSS
+•	Bootstrap 4
+
 
 
 ## External Deps  ##
