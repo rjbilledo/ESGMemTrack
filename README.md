@@ -38,7 +38,7 @@ Tools
 
 
 
-## External Deps  ##
+## External Dependencies  ##
 
 * Docker - Download latest version at https://www.docker.com/products/docker-desktop
 * Heroku CLI - Download latest version at https://devcenter.heroku.com/articles/heroku-cli
@@ -55,10 +55,10 @@ Download this code repository by using git:
 
 An RSpec test suite is available and can be ran using:
 
-  `rspec spec/feature/integration_spec.rb`
-  `rspec spec/feature/unit_spec.rb`
+  `rspec spec/feature/integration_spec.rb` for our integration tests 
+  `rspec spec/feature/unit_spec.rb` for out unit tests 
   or
-  `rspec spec`
+  `rspec spec` for our entire test suite 
 
 ## Execute Code ##
 
@@ -83,14 +83,18 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 Members will sign in to the application using google's login system. You will then be able to check the list of events and select the "Join this Event" button next to the events you will be attending. As an Admin, you will be able to select an event to check attendance and add points, select "Create a New Event" to make a new event, edit events by selecting "Edit" for the appropriate event, or join events in the same manner as other members.
 
+For environmental variables there are not really any, however, you may want to seed the database to get the preset events and users that we set up. 
+To do this, after creating and migrating the databse, run
+    `rails db:seed`
+
 ## Deployment ##
 
-Deployment should be automatically set for the test branch to deploy when it is updated on Github. Once the test is merged with main, it should be automatically deployed to the production app. This can also be done manually through the Heroku GUI, which is currently owned by Allison. Click on the production app, then click on Deploy, then choose the branch to deploy, then click deploy branch.
+Deployment should be automatically set for the test branch to deploy when it is updated on Github. Once the test is merged with main, it should be automatically deployed to the production app. The production app automatically deploys when the main branch is updated. This can also be done manually through the Heroku GUI, which is currently owned by Allison. Please talk to the officer team if they need to manually deploy. Click on the production app, then click on Deploy, then choose the branch to deploy, then click deploy branch. 
 
 
 ## CI/CD ##
 
-CI/CD is done through Heroku, which is continuously updating the servers based on what has been pushed. Rubocop and Brakeman are also being used to help with this. GitHub actions also it used to help automate the testing process. A code coverage of above 90% is acceptable for the application. Finally, there is a testing server used for continuous delivery to make sure the app works properly when deployed. This is done through GitHub Actions. GitHub actions works by automatically running the program against the tests that are set up to see if the tests pass. This includes rspec tests for unit and integration testing, rubocop for styling, and brakeman for security concerns.
+CI/CD is done through Heroku, which is continuously updating the servers based on what has been pushed. Rubocop and Brakeman are also being used to help with this. GitHub actions also it used to help automate the testing process. A code coverage of above 90% is acceptable for the application. Finally, there is a testing server used for continuous delivery to make sure the app works properly when deployed. This is done through GitHub Actions. GitHub actions works by automatically running the program against the tests that are set up to see if the tests pass. This includes rspec tests for unit and integration testing, rubocop for styling, and brakeman for security concerns. Brakeman currently lists no security issues, RuboCop currently has all styling changes fixed, and code coverage is above 90%, as stated.
 
 ## Support ##
 
